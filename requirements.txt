@@ -1,0 +1,24 @@
+1. 가상환경 만들기 (conda, venv)
+2. cd backend (backend 폴더 가서) 만든 가상환경 활성화
+3. 아래 문구 터미널에 입력해서 패키지들 설치
+pip install fastapi uvicorn pytubefix torch torchvision efficientnet-pytorch facenet-pytorch opencv-python-headless scikit-image numpy scipy
+
+4. node.js 설치된 상태 (brew install node -> 나는 이걸로 설치했음)
+5. cd frontend (frontend 폴더 가서)
+6. 아래 문구 터미널에 입력해서 설치
+npm install axios @mui/material @mui/icons-material react-router-dom react-chartjs-2 chart.js
+
+7. 터미널 두 개 쓸건데 하나는 백엔드, 하나는 프론트엔드 용
+
+8. 한 터미널에서 backend 폴더 간 상태에서 (만든 가상환경은 활성화한 상태) 
+터미널에 입력 -> uvicorn main:app --reload 
+9. http://127.0.0.1:8000 여기 들어가서 Welcome to the Deepfake Detection API! 뜨는 거 확인
+
+10. 다른 터미널은 frontend 폴더 간 상태에서
+터미널에 입력 -> npm start
+11. http://localhost:3000 여기서 창 잘 뜨는지 확인
+
+12. 종료하려면 각 터미널에 ctrl + c
+
+추가
+pip install sqlalchemy pymysql cryptography
