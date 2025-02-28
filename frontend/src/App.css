@@ -1,0 +1,92 @@
+/* 전체 컨테이너 스타일 */
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 전체 스타일 */
+* {
+  font-family: 'GmarketSansMedium', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+div {
+  /* font-family: Arial, sans-serif; */
+  background-color: #f4f4f9;
+  padding: 20px;
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* 입력 필드 스타일 */
+input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #5b9bd5;
+}
+
+/* 버튼 스타일 */
+button {
+  width: 80%;
+  padding: 10px;
+  background-color: #4C4C79;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1A1A3A;
+}
+
+button:disabled {
+  background-color: #9595B9;
+  cursor: not-allowed;
+}
+
+/* 예측 결과 메시지 스타일 */
+p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* 오류 메시지 스타일 */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* 영상 임베드 스타일 */
+iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* 로딩 상태 표시 스타일 */
+button:disabled {
+  background-color: #808080;
+}
