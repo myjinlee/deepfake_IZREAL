@@ -146,8 +146,6 @@ def detect_fake_no_face(video_path, frame_step=10):
     return False
 
 
-
-
 # ✅ **최종 실행 함수**
 def predict_video(video_path):
     print(f"🔍 분석 시작: {video_path}")
@@ -175,3 +173,4 @@ def predict_video(video_path):
     result["fake_score"] = float(fscore)
 
     return result
+

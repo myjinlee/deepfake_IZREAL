@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Pie } from 'react-chartjs-2';
@@ -10,14 +11,24 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const getYouTubeVideoId = (url) => {
   try {
     const parsedUrl = new URL(url);
+
+    // ✅ youtu.be 단축 URL 처리 (예: https://youtu.be/oPbuyJqSQ2k)
     if (parsedUrl.hostname === "youtu.be") {
       return parsedUrl.pathname.substring(1);
     }
+
+    // ✅ YouTube Shorts URL 처리 (예: https://www.youtube.com/shorts/oPbuyJqSQ2k)
+    if (parsedUrl.pathname.startsWith("/shorts/")) {
+      return parsedUrl.pathname.replace("/shorts/", "");
+    }
+
+    // ✅ 일반적인 YouTube URL 처리 (예: https://www.youtube.com/watch?v=oPbuyJqSQ2k)
     return parsedUrl.searchParams.get("v");
   } catch (error) {
     return null;
   }
 };
+
 
 function App() {
   const [url, setUrl] = useState('');
@@ -28,7 +39,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [embedUrl, setEmbedUrl] = useState('');
   const [showPopup, setShowPopup] = useState(false);
-
+  const [resultText, setResultText] = useState('');
+  
   const handleUrlChange = (e) => {
     const inputUrl = e.target.value;
     setUrl(inputUrl);
@@ -59,6 +71,7 @@ function App() {
             setPrediction(data.message);
             setRealScore(data.real_score);
             setFakeScore(data.fake_score);
+            setResultText(data.result_text);
         } else {
             console.error("🚨 API 응답 오류:", data);
             setPrediction(`Error: ${data.error || "Failed to fetch prediction"}`);
@@ -123,6 +136,13 @@ function App() {
           <Pie data={chartData} />
           <p>👍 진짜 영상 점수 : {realScore.toFixed(3)}</p>
           <p>👎 가짜 영상 점수 : {fakeScore.toFixed(3)}</p>
+        </div>
+      )}
+
+      {resultText && (
+        <div className="bg-gray-100 p-4 rounded-lg mt-4">
+          <h3 className="text-lg font-bold">📋 Prediction Result</h3>
+          <pre className="whitespace-pre-wrap text-sm font-mono">{resultText}</pre>
         </div>
       )}
 

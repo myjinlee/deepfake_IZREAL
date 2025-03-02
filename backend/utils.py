@@ -1,6 +1,7 @@
 import os
 from pytubefix import YouTube
 
+
 # ✅ 유튜브 영상 다운로드 함수
 def download_youtube_video(url, save_path="downloads"):
     """유튜브 쇼츠 또는 일반 영상을 다운로드하는 함수"""
@@ -23,3 +24,4 @@ def download_youtube_video(url, save_path="downloads"):
     except Exception as e:
         print(f"Error downloading video: {e}")
         raise ValueError("영상 다운로드 실패")
+    
